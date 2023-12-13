@@ -33,3 +33,15 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(1c72082e-c75b-4502-9d22-e20e46d66f3c)'
+    appType: 'webApp'
+    WebAppName: 'fydevopsapp'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
