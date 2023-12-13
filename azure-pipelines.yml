@@ -44,4 +44,4 @@ steps:
     azureSubscription: 'Azure subscription 1(1c72082e-c75b-4502-9d22-e20e46d66f3c)'
     appType: 'webApp'
     WebAppName: 'fydevopsapp'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(build.artifactStagingDirectory)\WebApp.zip'
